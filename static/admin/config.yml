@@ -2,8 +2,10 @@ backend:
   name: github
   repo: vinayreddybv/vinayreddybv.github.io
   branch: main
-  auth_endpoint: https://authenticating.netlify.app/auth
-  client_id: Ov23libKjIYPXOOOEmAM
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
+  cms_label_prefix: ""
+  site_domain: vinayreddybv.github.io
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
