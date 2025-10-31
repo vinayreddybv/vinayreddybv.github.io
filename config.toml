@@ -8,7 +8,8 @@ customCSS = ["css/custom.css"]
 
 [params]
   env = "production"
-  defaultTheme = "light"
+  defaultTheme = "light"     # no dark mode toggle
+  disableThemeToggle = true
   showReadingTime = true
   showPostNavLinks = true
   showBreadCrumbs = true
@@ -16,9 +17,51 @@ customCSS = ["css/custom.css"]
   showToc = false
   comments = false
 
-  [params.profileMode]
-    enabled = false
+  # --- SEO / Author Info ---
+  author = "B. Vinay Reddy"
+  description = "Writer & Advocate sharing insights on RTI, Legal Awareness, and People’s Rights."
+  keywords = ["RTI", "Consumer Rights", "Legal Awareness", "Transparency"]
 
+  # --- Favicon & Logo ---
+  assets = { favicon = "/images/profile.jpg", favicon16x16 = "/images/profile.jpg", favicon32x32 = "/images/profile.jpg" }
+
+  # --- Profile Mode (Homepage) ---
+  [params.profileMode]
+    enabled = true
+    title = "B. Vinay Reddy"
+    subtitle = "A writer and advocate, B. Vinay Reddy (M.Com, pursuing LLB) actively champions People's Rights and Consumer Awareness, making governance transparent through the RTI Act."
+    imageUrl = "/images/profile.jpg"
+    imageTitle = "Profile Picture"
+    imageWidth = 150
+    imageHeight = 150
+    buttons = []
+
+  # --- Social Links (for homepage icons) ---
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:help@bvinayreddy.com"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/bvinayreddy/"
+
+  [[params.socialIcons]]
+    name = "x-twitter"
+    url = "https://x.com/VinayReddyBV"
+
+  [[params.socialIcons]]
+    name = "facebook"
+    url = "https://www.facebook.com/BanappagariVinayReddy"
+
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://www.instagram.com/vinayreddybv/"
+
+  [[params.socialIcons]]
+    name = "link"
+    url = "https://www.bvinayreddy.com/"
+
+# --- Menu ---
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -33,15 +76,15 @@ customCSS = ["css/custom.css"]
     weight = 2
 
   [[menu.main]]
-    identifier = "consumer"
-    name = "Consumer Court"
-    url = "/consumer-court/"
+    identifier = "legal-awareness"
+    name = "Legal Awareness"
+    url = "/legal-awareness/"
     weight = 3
 
   [[menu.main]]
-    identifier = "others"
-    name = "Others"
-    url = "/others/"
+    identifier = "blogs"
+    name = "Blogs"
+    url = "/blogs/"
     weight = 4
 
   [[menu.main]]
@@ -52,4 +95,3 @@ customCSS = ["css/custom.css"]
 
 [markup.goldmark.renderer]
   unsafe = true
-
