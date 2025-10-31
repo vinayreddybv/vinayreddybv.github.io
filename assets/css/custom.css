@@ -1,177 +1,92 @@
-/* =========================
-   Custom styling for B. Vinay Reddy
-   Clean PaperMod + Brand Colors & Zoom Hover
-   ========================= */
-
-/* ---- GLOBAL ---- */
-body {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  line-height: 1.7;
-  color: #222;
+/* ===== Brand Blue Accent and Style Enhancements ===== */
+:root {
+  --brand-blue: #0078ff;
 }
 
-a {
-  color: inherit;
+/* Header / Site title */
+.header .site-title a {
+  color: var(--brand-blue);
+  font-weight: 700;
   text-decoration: none;
 }
-a:hover {
-  color: #0078ff;
+.header .site-title a:hover {
   text-decoration: underline;
 }
 
-/* ---- HEADER ---- */
-header.header {
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 1.2rem 1.8rem;
-}
-.header a {
+/* Navigation menu (top-right) */
+.nav a {
+  color: #333;
   font-weight: 500;
-  font-size: 1rem;
-  opacity: 0.9;
+  margin: 0 8px;
+  transition: color 0.3s ease;
 }
-.header a:hover {
-  opacity: 1;
-  color: #0078ff;
-}
-.logo-switches {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+.nav a:hover {
+  color: var(--brand-blue);
 }
 
-/* ---- PROFILE ---- */
-.profile {
-  text-align: center;
-  margin-top: 4rem;
-}
-.profile img {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.profile h1 {
-  font-size: 1.9rem;
-  margin-top: 1.2rem;
-  margin-bottom: 0.4rem;
+/* Active menu link (like Blog) */
+.nav a.active,
+.nav .active a {
+  color: var(--brand-blue);
   font-weight: 600;
 }
-.profile p {
-  font-size: 1.05rem;
-  color: #555;
-  margin-bottom: 1.4rem;
-}
 
-/* ---- SOCIAL ICONS ---- */
-.social-icons {
-  text-align: center;
-  margin-top: 1.2rem;
-}
-
-/* Base link styling */
-.social-icons a {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  transition: transform 0.25s ease-out, color 0.25s ease-out;
-}
-
-/* ✅ Crucial overrides: make sure icons are visible */
-.social-icons svg,
+/* ===== Social Icons ===== */
 .social-icons a svg {
-  display: inline-block !important;
-  width: 1.5em !important;
-  height: 1.5em !important;
-  fill: currentColor !important;
-  stroke: currentColor !important;
-  filter: none !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
-  background: none !important;
+  filter: grayscale(100%) brightness(0.5);
+  opacity: 0.8;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+.social-icons a:hover svg {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.15);
 }
 
-/* ✅ Disable PaperMod's CSS variables that hide SVG colors */
-:root {
-  --social-icon-filter: none !important;
+/* ===== Profile Image ===== */
+.profile img {
+  border-radius: 50%;
+  border: 3px solid #e0e0e0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.dark {
-  --social-icon-filter: none !important;
-}
-
-/* ---- BRAND COLORS ---- */
-.social-icons a[href*="mailto"] {
-  color: #D44638 !important; /* Gmail/Red */
-}
-.social-icons a[href*="facebook"] {
-  color: #1877F2 !important; /* Facebook Blue */
-}
-.social-icons a[href*="x.com"],
-.social-icons a[href*="twitter"] {
-  color: #000000 !important; /* Twitter/X */
-}
-.social-icons a[href*="instagram"] {
-  color: #E4405F !important; /* Instagram Pink */
-}
-.social-icons a[href*="taxguru"],
-.social-icons a[href*="bvinayreddy"],
-.social-icons a[href*="link"],
-.social-icons a[href*="website"] {
-  color: #0077B5 !important; /* Professional Blue */
+.profile img:hover {
+  transform: scale(1.05);
+  border-color: var(--brand-blue);
 }
 
-/* Hover zoom */
-.social-icons a:hover {
-  transform: scale(1.2);
+/* ===== Subtitle (under name) ===== */
+.profile .subtitle {
+  color: #555;
+  margin-top: 0.4rem;
 }
 
-/* ---- POSTS ---- */
-.post-entry {
-  max-width: 780px;
-  margin: 0 auto 2rem;
-  padding: 1.4rem 2rem;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  background-color: #fff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.post-entry:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-}
-.post-entry h2 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-}
-.post-entry time {
-  color: #777;
+/* ===== Footer ===== */
+.footer {
   font-size: 0.9rem;
+  color: #666;
+}
+.footer a {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
 }
 
-/* ---- DARK MODE ---- */
-.dark body {
-  color: #eaeaea;
-  background-color: #111;
+/* ===== Optional: Soft Blue Background Hover for Icons ===== */
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  margin: 0 4px;
 }
 
-/* Keep brand colors visible even in dark mode */
-.dark .social-icons a[href*="mailto"] {
-  color: #D44638 !important;
-}
-.dark .social-icons a[href*="facebook"] {
-  color: #1877F2 !important;
-}
-.dark .social-icons a[href*="x.com"],
-.dark .social-icons a[href*="twitter"] {
-  color: #FFFFFF !important;
-}
-.dark .social-icons a[href*="instagram"] {
-  color: #E4405F !important;
-}
-.dark .social-icons a[href*="taxguru"],
-.dark .social-icons a[href*="bvinayreddy"],
-.dark .social-icons a[href*="link"],
-.dark .social-icons a[href*="website"] {
-  color: #0077B5 !important;
+.social-icons a:hover {
+  background-color: rgba(0, 120, 255, 0.1);
+  transform: translateY(-2px);
 }
