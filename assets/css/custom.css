@@ -1,156 +1,81 @@
-/* ===== Brand Blue Accent and Global Variables ===== */
+/* ===== Neutral Beige Theme inspired by prkspeaks.com ===== */
 :root {
-  --brand-blue: #0078ff;
+  --bg-color: #faf8f4;
+  --text-color: #2a2a2a;
+  --accent-color: #b8860b; /* muted gold */
+  --link-color: #b8860b;
 }
 
-/* ===== Header (Fixed on Top with Soft Shadow) ===== */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--theme);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  padding: 0.8rem 0;
-}
-
+/* Page background & typography */
 body {
-  padding-top: 70px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
 }
 
-/* Header Title */
+/* Site title */
 .header .site-title a {
-  color: var(--brand-blue);
+  color: var(--text-color);
   font-weight: 700;
   text-decoration: none;
 }
+
 .header .site-title a:hover {
-  text-decoration: underline;
+  color: var(--accent-color);
 }
 
-/* Navigation Menu */
+/* Navigation */
 .nav a {
-  color: #333;
+  color: var(--text-color);
+  margin: 0 0.75rem;
+  text-transform: uppercase;
   font-weight: 500;
-  margin: 0 8px;
-  transition: color 0.3s ease;
 }
+
 .nav a:hover {
-  color: var(--brand-blue);
-}
-.nav a.active,
-.nav .active a {
-  color: var(--brand-blue);
-  font-weight: 600;
-}
-
-/* ===== Social Icons (Blue Glow Hover) ===== */
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  margin: 0 6px;
-}
-
-.social-icons a svg {
-  fill: #333;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-  background-color: rgba(0, 120, 255, 0.1);
-  transform: translateY(-2px);
-}
-.social-icons a:hover svg {
-  fill: var(--brand-blue);
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* ===== Profile Image ===== */
-.profile img {
-  border-radius: 50%;
-  border: 3px solid #e0e0e0;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.profile img:hover {
-  transform: scale(1.05);
-  border-color: var(--brand-blue);
-}
-
-/* Subtitle */
-.profile .subtitle {
-  color: #555;
-  margin-top: 0.4rem;
-}
-
-/* ===== Footer (Always Visible, Centered) ===== */
-footer.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #fafafa;
-  border-top: 1px solid #ddd;
-  text-align: center;
-  padding: 0.6rem 0.5rem;
-  font-size: 0.9rem;
-  z-index: 9999;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-}
-
-footer.footer p,
-footer.footer div {
-  margin: 0.2rem 0;
-  text-align: center;
-}
-
-footer.footer a {
-  color: var(--brand-blue);
-  text-decoration: none;
-  margin: 0 0.4rem;
-}
-footer.footer a:hover {
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
-/* Prevent Footer Overlap */
-body {
-  margin-bottom: 4rem !important;
+/* Post cards on homepage */
+.post-entry {
+  background: #ffffff;
+  border: 1px solid #eae6df;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
 }
 
-/* ===== Dark Mode Fixes ===== */
-[data-theme="dark"] .header {
-  background: #181818;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+.post-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
-[data-theme="dark"] .nav a {
-  color: #ccc;
+
+.post-entry img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
 }
-[data-theme="dark"] .nav a:hover {
-  color: #66aaff;
+
+/* Post title */
+.post-entry h2 {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: 0.3rem;
 }
-[data-theme="dark"] .social-icons a svg {
-  fill: #ccc;
+
+.post-entry h2:hover {
+  color: var(--accent-color);
 }
-[data-theme="dark"] .social-icons a:hover svg {
-  fill: #66aaff;
-}
-[data-theme="dark"] footer.footer {
-  background: #181818;
-  border-top: 1px solid #333;
-  color: #ccc;
-}
-[data-theme="dark"] footer.footer a {
-  color: #66aaff;
-}
-[data-theme="dark"] footer.footer a:hover {
-  color: #99cfff;
+
+/* Footer */
+.footer {
+  border-top: 1px solid #eae6df;
+  color: #777;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  text-align: center;
 }
