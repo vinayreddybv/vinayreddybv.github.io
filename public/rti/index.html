@@ -29,7 +29,7 @@
 
     </style>
 </noscript>
-<link rel="stylesheet" href="http://localhost:1313/css/custom.min.554a79aff1134ad34ca5146bec3b3d5a5a7ead52f36cf39331867f2177ac0f03.css">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.17a5d1ca6fecb6b8b00a4eba191925cf662778a1bf19534689103b3d09f1a99b.css">
 <meta property="og:url" content="http://localhost:1313/rti/">
   <meta property="og:site_name" content="B. Vinay Reddy">
   <meta property="og:title" content="RTI">
@@ -60,6 +60,7 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <a href="http://localhost:1313/" accesskey="h" title="B. Vinay Reddy (Alt + H)">B. Vinay Reddy</a>
             <div class="logo-switches">
             </div>
@@ -99,6 +100,14 @@ function toggleMenu() {
   menu.classList.toggle('open');
 }
 </script>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}
+</script>
+
 
 </header>
 <main class="main">

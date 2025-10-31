@@ -1,13 +1,12 @@
-/* ===== Neutral Beige Theme inspired by prkspeaks.com ===== */
+/* ===== Neutral Beige Theme ===== */
 :root {
   --bg-color: #faf8f4;
   --text-color: #2a2a2a;
-  --accent-color: #b8860b; /* muted gold */
+  --accent-color: #b8860b;
   --link-color: #b8860b;
   --brand-blue: #0078ff;
 }
 
-/* Page background & typography */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -15,18 +14,15 @@ body {
   line-height: 1.6;
 }
 
-/* Site title */
-.header .site-title a {
-  color: var(--text-color);
-  font-weight: 700;
-  text-decoration: none;
+/* Header layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  position: relative;
 }
 
-.header .site-title a:hover {
-  color: var(--accent-color);
-}
-
-/* Navigation (Desktop) */
 .nav {
   display: flex;
   align-items: center;
@@ -45,220 +41,40 @@ body {
   text-decoration: underline;
 }
 
-/* Post cards on homepage */
-.post-entry {
-  background: #ffffff;
-  border: 1px solid #eae6df;
-  border-radius: 10px;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-  transition: all 0.25s ease;
-}
-
-.post-entry:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.post-entry img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-}
-
-/* Post title */
-.post-entry h2 {
-  font-size: 1.3rem;
-  color: var(--text-color);
-  margin-bottom: 0.3rem;
-}
-
-.post-entry h2:hover {
-  color: var(--accent-color);
-}
-
-/* Footer */
-.footer {
-  border-top: 1px solid #eae6df;
-  color: #777;
-  font-size: 0.9rem;
-  padding-top: 1rem;
-  text-align: center;
-}
-
-/* === Homepage Profile Section === */
-.home-profile {
-  text-align: center;
-  background-color: var(--bg-color);
-  padding: 4rem 1rem 6rem;
-  border-radius: 8px;
-}
-
-.profile-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.home-name {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text-color);
-}
-
-.home-bio {
-  max-width: 650px;
-  margin: 0 auto 1.8rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-/* === Social Icons === */
-.social-links a {
-  margin: 0 10px;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.social-links a:hover {
-  transform: scale(1.15);
-}
-
-/* Brand colors for social icons */
-.fa-envelope { color: #d14836; }
-.fa-link { color: var(--accent-color); }
-.fa-linkedin { color: #0a66c2; }
-.fa-x-twitter { color: #000; }
-.fa-facebook { color: #1877f2; }
-.fa-instagram {
-  color: #d6249f;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* === RTI Section Cards === */
-.rti-section {
-  text-align: center;
-  padding: 3rem 1rem;
-  background-color: var(--bg-color);
-}
-
-.rti-heading {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-}
-
-.rti-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.rti-card {
-  display: block;
-  width: 260px;
-  padding: 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid #eae6df;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-decoration: none;
-  color: var(--text-color);
-  transition: all 0.25s ease;
-}
-
-.rti-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
-
-.rti-card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-  color: var(--accent-color);
-}
-
-.rti-card p {
-  font-size: 0.95rem;
-  color: #444;
-}
-
-/* === FIX: Center profile image and show social icons === */
-.profile-mode,
-.home-profile,
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.profile-mode img,
-.home-profile img,
-.profile img {
-  display: block;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* Force social icons to center */
-.social-icons,
-.social-links {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-/* ===== Responsive Navigation (Mobile Hamburger Menu) ===== */
-.menu-trigger {
+/* === Hamburger Menu === */
+.menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--brand-blue);
+  cursor: pointer;
 }
 
+/* Desktop menu */
+#menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* Mobile menu */
 @media (max-width: 768px) {
-  /* Hide normal nav */
-  .nav {
-    display: none;
-  }
-
-  /* Show hamburger icon */
-  .menu-trigger {
-    display: inline-block;
-    font-size: 1.6rem;
-    cursor: pointer;
-    color: var(--brand-blue);
-    margin-left: 1rem;
-  }
-
-  /* Mobile dropdown menu */
-  .menu {
+  #menu {
     display: none;
     flex-direction: column;
-    background: #fff;
+    background: white;
     position: absolute;
     top: 60px;
-    right: 20px;
-    width: 75%;
+    right: 10px;
+    width: 200px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    text-align: right;
   }
 
-  .menu.open {
+  #menu.open {
     display: flex;
     animation: fadeSlide 0.3s ease forwards;
   }
@@ -274,60 +90,44 @@ body {
     }
   }
 
-  .menu a {
-    color: #333;
-    padding: 0.6rem 0;
-    text-decoration: none;
-    border-bottom: 1px solid #eee;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .menu a:hover {
-    color: var(--brand-blue);
-  }
-}
-
-/* ===== Mobile Menu Styling ===== */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: var(--brand-blue);
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  #menu {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 180px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding: 10px;
-    text-align: right;
-  }
-
-  #menu.open {
-    display: flex;
-    animation: slideDown 0.25s ease-in-out;
-  }
-
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 12px;
     right: 20px;
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 }
 
+/* === Profile & Layout Styles (unchanged aesthetic) === */
+.home-profile {
+  text-align: center;
+  padding: 4rem 1rem 6rem;
+  background-color: var(--bg-color);
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+}
+
+/* Center all profile elements */
+.profile-mode,
+.home-profile,
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Social icons center */
+.social-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}

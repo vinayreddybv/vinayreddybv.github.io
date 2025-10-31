@@ -28,7 +28,7 @@
 
     </style>
 </noscript>
-<link rel="stylesheet" href="http://localhost:1313/css/custom.min.9ee013733b47520cce55ed04d3546ad8950f7ef2e018bb748af451c829cdc633.css">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.17a5d1ca6fecb6b8b00a4eba191925cf662778a1bf19534689103b3d09f1a99b.css">
 <meta property="og:url" content="http://localhost:1313/rti/blogs/post1/">
   <meta property="og:site_name" content="B. Vinay Reddy">
   <meta property="og:title" content="RTI Application for Property Records">
@@ -103,10 +103,12 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <a href="http://localhost:1313/" accesskey="h" title="B. Vinay Reddy (Alt + H)">B. Vinay Reddy</a>
             <div class="logo-switches">
             </div>
         </div>
+        <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
         <ul id="menu">
             <li>
                 <a href="http://localhost:1313/" title="Home">
@@ -135,6 +137,21 @@
             </li>
         </ul>
     </nav>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('open');
+}
+</script>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}
+</script>
+
+
 </header>
 <main class="main">
 
@@ -163,6 +180,13 @@
   <footer class="post-footer">
     <ul class="post-tags">
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/rti/formats/post2/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>How an RTI Exposed a Bribe Demand in a PAN Surrender Case</span>
+  </a>
+</nav>
 
   </footer>
 </article>
