@@ -3,7 +3,7 @@ name: Deploy Hugo site to Pages
 on:
   push:
     branches:
-      - main  # build every time you push to main branch
+      - main
 
 jobs:
   build:
@@ -13,13 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: true  # fetch theme (PaperMod)
+          submodules: recursive     # ✅ ensures the theme is downloaded
           fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.152.2' # or your version
+          hugo-version: '0.152.2'
           extended: true
 
       - name: Build
