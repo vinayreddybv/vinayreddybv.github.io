@@ -5,6 +5,11 @@ REM Author: B. Vinay Reddy
 cd "C:\0. Website\bvinayreddy"
 
 echo ---------------------------------------
+echo 🔄 Updating submodules...
+echo ---------------------------------------
+git submodule update --init --recursive
+
+echo ---------------------------------------
 echo 🚀 Building Hugo site...
 echo ---------------------------------------
 hugo --cleanDestinationDir --minify
