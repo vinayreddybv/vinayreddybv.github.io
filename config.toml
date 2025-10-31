@@ -16,6 +16,8 @@ customCSS = ["css/custom.css"]
   showCodeCopyButtons = true
   showToc = false
   comments = false
+  showMenu = true
+  collapseMenu = true
 
   # --- SEO / Author Info ---
   author = "B. Vinay Reddy"
