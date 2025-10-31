@@ -1,173 +1,135 @@
-/* ===== Brand Blue Accent and Style Enhancements ===== */
+/* ======================================
+   B. Vinay Reddy — Final Fix (Footer + Dark Mode)
+   ====================================== */
+
 :root {
   --brand-blue: #0078ff;
+  --text-color: #333;
+  --bg-color: #ffffff;
+  --border-color: #ddd;
 }
 
-/* Header / Site title */
-.header .site-title a {
-  color: var(--brand-blue);
-  font-weight: 700;
-  text-decoration: none;
-}
-.header .site-title a:hover {
-  text-decoration: underline;
+/* ===== Sticky Header ===== */
+.header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-/* Navigation menu (top-right) */
+body {
+  padding-top: 5rem !important;
+  padding-bottom: 3.5rem !important;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+/* ===== Navigation ===== */
 .nav a {
-  color: #333;
+  color: var(--text-color);
+  margin: 0 12px;
+  text-decoration: none;
   font-weight: 500;
-  margin: 0 8px;
   transition: color 0.3s ease;
 }
-.nav a:hover {
+.nav a:hover,
+.nav a.active {
   color: var(--brand-blue);
-}
-
-/* Active menu link (like Blog) */
-.nav a.active,
-.nav .active a {
-  color: var(--brand-blue);
-  font-weight: 600;
 }
 
 /* ===== Social Icons ===== */
-.social-icons a svg {
-  filter: grayscale(100%) brightness(0.5);
-  opacity: 0.8;
-  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
-}
-.social-icons a:hover svg {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-/* ===== Profile Image ===== */
-.profile img {
-  border-radius: 50%;
-  border: 3px solid #e0e0e0;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.profile img:hover {
-  transform: scale(1.05);
-  border-color: var(--brand-blue);
-}
-
-/* ===== Subtitle (under name) ===== */
-.profile .subtitle {
-  color: #555;
-  margin-top: 0.4rem;
-}
-
-/* ===== Footer ===== */
-.footer {
-  font-size: 0.9rem;
-  color: #666;
-}
-.footer a {
-  color: var(--brand-blue);
-  text-decoration: none;
-}
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Optional: Soft Blue Background Hover for Icons ===== */
 .social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background-color: transparent;
-  transition: background-color 0.3s ease, transform 0.25s ease;
-  margin: 0 4px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s ease;
 }
 
 .social-icons a:hover {
-  background-color: rgba(0, 120, 255, 0.1);
-  transform: translateY(-2px);
+  background-color: var(--brand-blue);
+  transform: scale(1.12);
+}
+.social-icons a:hover svg {
+  fill: #fff;
 }
 
-/* ===== Custom Footer Styling ===== */
-.custom-footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #555;
-  border-top: 1px solid #e0e0e0;
-  background: #fafafa;
-}
-
-.custom-footer a {
-  color: var(--brand-blue);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.custom-footer a:hover {
-  text-decoration: underline;
-  color: #005dc1;
-}
-
-/* ===== Legal Pages Styling ===== */
-.main .post-content h2 {
-  font-size: 1.4rem;
-  color: #222;
-  margin-top: 1.5rem;
-  border-left: 4px solid var(--brand-blue);
-  padding-left: 0.6rem;
-}
-
-.main .post-content p {
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 1rem;
-}
-
-.main .post-content ul {
-  margin-left: 1.5rem;
-  line-height: 1.6;
-}
-/* ===== Minimal Fixed Footer (Elegant & Auto-Year) ===== */
-body {
+/* ===== Sticky Centered Footer ===== */
+footer.footer {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-.main {
-  flex: 1;
-}
-
-/* Footer styling */
-.custom-footer {
+  align-items: center;     /* Centers horizontally */
+  justify-content: center; /* Centers vertically */
+  background: var(--bg-color);
+  border-top: 1px solid var(--border-color);
   text-align: center;
-  font-size: 0.85rem;
-  color: #555;
-  border-top: 1px solid #e0e0e0;
-  background: #fafafa;
-  padding: 0.8rem 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  padding: 0.7rem 0.5rem;
+  font-size: 0.9rem;
+  z-index: 1000;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.custom-footer p {
-  margin: 0.2rem 0;
-}
-
-.custom-footer a {
+footer.footer a {
   color: var(--brand-blue);
   text-decoration: none;
-  margin: 0 0.25rem;
-  transition: color 0.3s ease;
+  margin: 0 0.4rem;
+}
+footer.footer a:hover {
+  text-decoration: underline;
 }
 
-.custom-footer a:hover {
-  color: #005dc1;
-  text-decoration: underline;
+/* Prevent content overlap */
+body {
+  margin-bottom: 4rem !important;
+}
+
+/* ===== Dark Mode ===== */
+[data-theme="dark"] {
+  --bg-color: #181818;
+  --text-color: #ccc;
+  --border-color: #333;
+  --brand-blue: #66aaff;
+}
+
+[data-theme="dark"] .header,
+[data-theme="dark"] footer.footer {
+  background: var(--bg-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .nav a {
+  color: var(--text-color);
+}
+[data-theme="dark"] .nav a:hover {
+  color: var(--brand-blue);
+}
+
+[data-theme="dark"] .social-icons a svg {
+  fill: var(--text-color);
+}
+[data-theme="dark"] .social-icons a:hover {
+  background-color: var(--brand-blue);
+}
+[data-theme="dark"] .social-icons a:hover svg {
+  fill: #fff;
 }
