@@ -31,7 +31,7 @@ customCSS = ["css/custom.css"]
   [params.profileMode]
     enabled = true
     title = "B. Vinay Reddy"
-    subtitle = "A writer and advocate, B. Vinay Reddy (M.Com, pursuing LLB) actively champions People's Rights and Consumer Awareness, making governance transparent through the RTI Act."
+    subtitle = "Writer | Law Student | RTI for Change | Voice for Accountability"
     imageUrl = "/images/profile.jpg"
     imageTitle = "Profile Picture"
     imageWidth = 150
