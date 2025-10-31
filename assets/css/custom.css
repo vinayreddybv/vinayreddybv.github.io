@@ -1,91 +1,115 @@
-/* ======================================
-   B. Vinay Reddy — Final Fix (Footer + Dark Mode)
-   ====================================== */
-
+/* ===== Brand Blue Accent and Global Variables ===== */
 :root {
   --brand-blue: #0078ff;
-  --text-color: #333;
-  --bg-color: #ffffff;
-  --border-color: #ddd;
 }
 
-/* ===== Sticky Header ===== */
+/* ===== Header (Fixed on Top with Soft Shadow) ===== */
 .header {
-  position: fixed !important;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--bg-color);
-  border-bottom: 1px solid var(--border-color);
+  background: var(--theme);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   z-index: 1000;
-  padding: 0.6rem 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 0.8rem 0;
 }
 
 body {
-  padding-top: 5rem !important;
-  padding-bottom: 3.5rem !important;
-  color: var(--text-color);
-  background: var(--bg-color);
+  padding-top: 70px;
 }
 
-/* ===== Navigation ===== */
-.nav a {
-  color: var(--text-color);
-  margin: 0 12px;
+/* Header Title */
+.header .site-title a {
+  color: var(--brand-blue);
+  font-weight: 700;
   text-decoration: none;
+}
+.header .site-title a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation Menu */
+.nav a {
+  color: #333;
   font-weight: 500;
+  margin: 0 8px;
   transition: color 0.3s ease;
 }
-.nav a:hover,
-.nav a.active {
+.nav a:hover {
   color: var(--brand-blue);
 }
+.nav a.active,
+.nav .active a {
+  color: var(--brand-blue);
+  font-weight: 600;
+}
 
-/* ===== Social Icons ===== */
+/* ===== Social Icons (Blue Glow Hover) ===== */
 .social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  margin: 0 5px;
+  background-color: transparent;
   transition: all 0.3s ease;
+  margin: 0 6px;
 }
 
 .social-icons a svg {
-  fill: var(--text-color);
-  width: 20px;
-  height: 20px;
-  transition: fill 0.3s ease;
+  fill: #333;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  background-color: var(--brand-blue);
-  transform: scale(1.12);
+  background-color: rgba(0, 120, 255, 0.1);
+  transform: translateY(-2px);
 }
 .social-icons a:hover svg {
-  fill: #fff;
+  fill: var(--brand-blue);
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-/* ===== Sticky Centered Footer ===== */
+/* ===== Profile Image ===== */
+.profile img {
+  border-radius: 50%;
+  border: 3px solid #e0e0e0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.profile img:hover {
+  transform: scale(1.05);
+  border-color: var(--brand-blue);
+}
+
+/* Subtitle */
+.profile .subtitle {
+  color: #555;
+  margin-top: 0.4rem;
+}
+
+/* ===== Footer (Always Visible, Centered) ===== */
 footer.footer {
-  position: fixed !important;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;     /* Centers horizontally */
-  justify-content: center; /* Centers vertically */
-  background: var(--bg-color);
-  border-top: 1px solid var(--border-color);
+  background: #fafafa;
+  border-top: 1px solid #ddd;
   text-align: center;
-  padding: 0.7rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   font-size: 0.9rem;
-  z-index: 1000;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 9999;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+footer.footer p,
+footer.footer div {
+  margin: 0.2rem 0;
+  text-align: center;
 }
 
 footer.footer a {
@@ -97,39 +121,36 @@ footer.footer a:hover {
   text-decoration: underline;
 }
 
-/* Prevent content overlap */
+/* Prevent Footer Overlap */
 body {
   margin-bottom: 4rem !important;
 }
 
-/* ===== Dark Mode ===== */
-[data-theme="dark"] {
-  --bg-color: #181818;
-  --text-color: #ccc;
-  --border-color: #333;
-  --brand-blue: #66aaff;
+/* ===== Dark Mode Fixes ===== */
+[data-theme="dark"] .header {
+  background: #181818;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
 }
-
-[data-theme="dark"] .header,
-[data-theme="dark"] footer.footer {
-  background: var(--bg-color);
-  border-color: var(--border-color);
-  color: var(--text-color);
-}
-
 [data-theme="dark"] .nav a {
-  color: var(--text-color);
+  color: #ccc;
 }
 [data-theme="dark"] .nav a:hover {
-  color: var(--brand-blue);
+  color: #66aaff;
 }
-
 [data-theme="dark"] .social-icons a svg {
-  fill: var(--text-color);
-}
-[data-theme="dark"] .social-icons a:hover {
-  background-color: var(--brand-blue);
+  fill: #ccc;
 }
 [data-theme="dark"] .social-icons a:hover svg {
-  fill: #fff;
+  fill: #66aaff;
+}
+[data-theme="dark"] footer.footer {
+  background: #181818;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+[data-theme="dark"] footer.footer a {
+  color: #66aaff;
+}
+[data-theme="dark"] footer.footer a:hover {
+  color: #99cfff;
 }
