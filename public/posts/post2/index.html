@@ -34,7 +34,7 @@
     }
 
 </script>
-<link rel="stylesheet" href="http://localhost:1313/css/custom.min.5ae2db038bf35fc14654f123667a5dbd8b7351a3706b58817a3afc2229ff5f3d.css">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.4626c213094896e8dd8f7a5d151a935ae6375077c95443d082e63128b21d5dae.css">
 <meta property="og:url" content="http://localhost:1313/posts/post2/">
   <meta property="og:site_name" content="B. Vinay Reddy">
   <meta property="og:title" content="Consumer Court Case Summary">
@@ -106,7 +106,7 @@
 </script>
 </head>
 <body id="top">
-    <header class="header">
+    <header class="header" id="siteHeader">
   <nav class="nav">
     <div class="logo">
       <a href="http://localhost:1313/" accesskey="h" title="B. Vinay Reddy (Alt + H)">
@@ -115,71 +115,56 @@
     </div>
 
     
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
 
     
     <ul id="menu">
       <li>
         <a href="http://localhost:1313/">
-          <span >
-            Home
-          </span>
+          <span >Home</span>
         </a>
       </li>
       <li>
         <a href="http://localhost:1313/rti/">
-          <span >
-            RTI
-          </span>
+          <span >RTI</span>
         </a>
       </li>
       <li>
         <a href="http://localhost:1313/legal-awareness/">
-          <span >
-            Legal Awareness
-          </span>
+          <span >Legal Awareness</span>
         </a>
       </li>
       <li>
         <a href="http://localhost:1313/blogs/">
-          <span >
-            Blogs
-          </span>
+          <span >Blogs</span>
         </a>
       </li>
       <li>
         <a href="http://localhost:1313/contact/">
-          <span >
-            Contact Me
-          </span>
+          <span >Contact Me</span>
         </a>
       </li>
     </ul>
-
-    
-    <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
-      🌙
-    </button>
   </nav>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menu");
+      const body = document.body;
+      const toggle = document.getElementById("menuToggle");
       menu.classList.toggle("open");
+      body.classList.toggle("menu-open");
+      toggle.classList.toggle("open");
     }
 
     
-    const themeToggle = document.getElementById("theme-toggle");
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.body.classList.toggle("dark");
-      localStorage.setItem("pref-theme", isDark ? "dark" : "light");
-      themeToggle.textContent = isDark ? "☀️" : "🌙";
+    window.addEventListener("scroll", () => {
+      const header = document.getElementById("siteHeader");
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
     });
-
-    if (localStorage.getItem("pref-theme") === "dark") {
-      document.body.classList.add("dark");
-      themeToggle.textContent = "☀️";
-    }
   </script>
 </header>
 <main class="main">
@@ -225,6 +210,16 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+<footer class="footer">
+  <p>© <span id="year"></span> <strong>B. Vinay Reddy</strong></p>
+  <p>
+    <a href="/privacy-policy">Privacy Policy</a> | 
+    <a href="/disclaimer">Disclaimer</a> | 
+    <a href="/terms-of-use">Terms of Use</a>
+  </p>
+</footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 
 </html>
