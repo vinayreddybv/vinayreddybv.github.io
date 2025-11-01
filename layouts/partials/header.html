@@ -1,42 +1,17 @@
 <header class="header">
   <nav class="nav">
     <div class="logo">
-      {{- $label_text := (site.Params.label.text | default site.Title) }}
-      {{- if site.Title }}
-      <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-        {{- if site.Params.label.icon }}
-          {{- $img := resources.Get site.Params.label.icon }}
-          {{- if $img }}
-            {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif" "webp") }}
-            {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-            {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
-              {{- if site.Params.label.iconHeight }}
-                {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-              {{ else }}
-                {{- $img = $img.Resize "x30" }}
-              {{- end }}
-            {{- end }}
-            <img src="{{ $img.Permalink }}" alt="logo"
-              height="{{ site.Params.label.iconHeight | default "30" }}">
-          {{- else }}
-            <img src="{{ site.Params.label.icon | absURL }}" alt="logo"
-              height="{{ site.Params.label.iconHeight | default "30" }}">
-          {{- end }}
-        {{- end }}
-        {{ $label_text }}
+      <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ site.Title }} (Alt + H)">
+        <strong class="site-title">{{ site.Title }}</strong>
       </a>
-      {{- end }}
     </div>
 
-    <!-- Theme toggle -->
-    {{- if (not site.Params.disableThemeToggle) }}
-    <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
-      🌙
+    <!-- Hamburger / Close Icon -->
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    {{- end }}
-
-    <!-- Hamburger Icon -->
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
     <!-- Main Menu -->
     <ul id="menu">
@@ -58,7 +33,12 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menu");
+      const body = document.body;
+      const toggle = document.getElementById("menuToggle");
+
       menu.classList.toggle("open");
+      body.classList.toggle("menu-open");
+      toggle.classList.toggle("open");
     }
   </script>
 </header>

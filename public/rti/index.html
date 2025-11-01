@@ -40,7 +40,13 @@
 
     </style>
 </noscript>
-<link rel="stylesheet" href="http://localhost:1313/css/custom.min.c5ce1dfccb0736a1d293fe9a650a5930777c180014dc7db7190b0c399655469c.css">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    }
+
+</script>
+<link rel="stylesheet" href="http://localhost:1313/css/custom.min.2f80e18c4e660e3c356dc417c24fc3b844fe61a627035e94ce95f2442feaee9c.css">
 <meta property="og:url" content="http://localhost:1313/rti/">
   <meta property="og:site_name" content="B. Vinay Reddy">
   <meta property="og:title" content="RTI Section">
@@ -73,14 +79,16 @@
   <nav class="nav">
     <div class="logo">
       <a href="http://localhost:1313/" accesskey="h" title="B. Vinay Reddy (Alt + H)">
-        B. Vinay Reddy
+        <strong class="site-title">B. Vinay Reddy</strong>
       </a>
     </div>
 
     
-
-    
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
     
     <ul id="menu">
@@ -125,7 +133,12 @@
   <script>
     function toggleMenu() {
       const menu = document.getElementById("menu");
+      const body = document.body;
+      const toggle = document.getElementById("menuToggle");
+
       menu.classList.toggle("open");
+      body.classList.toggle("menu-open");
+      toggle.classList.toggle("open");
     }
   </script>
 </header>

@@ -9,7 +9,7 @@ customCSS = ["css/custom.css"]
 [params]
   env = "production"
   defaultTheme = "light"     # no dark mode toggle
-  disableThemeToggle = true
+  disableThemeToggle = false
   showReadingTime = true
   showPostNavLinks = true
   showBreadCrumbs = true
